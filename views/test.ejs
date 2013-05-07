@@ -21,12 +21,22 @@
 	$(window).keyup(function(e){
 	    qController.judge( e.keyCode );
 	});	
+
+	$('#teamAButton').click( function(){ qController.setTeam( 'a' ) }  );
+	$('#teamBButton').click( function(){ qController.setTeam( 'b' ) }  );
     });
+
     </script>
   </head>
 
   <body>
     TEST Page.
+<div>
+    <label><input id='teamAButton' type='radio' value='a' name='team' >team A</label>
+    <br>
+    <label><input id='teamBButton' type='radio' value='b' name='team' >team B</label>
+</div>
+
 <div class='team'>
 <div id='judge'></div>
 <div id='score_a' class='score'></div>
