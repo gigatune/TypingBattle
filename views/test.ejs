@@ -6,21 +6,29 @@
     <link rel='stylesheet' href='/stylesheets/base.css' />
     <script type='text/javascript' src='javascripts/jquery.js'></script>
     <script type='text/javascript' src='javascripts/Word.js'></script>
+    <script type='text/javascript' src='javascripts/questionController.js'></script>
     <script type='text/javascript' src='javascripts/viewController.js'></script>
+    <script type='text/javascript' src='javascripts/Mediator.js'></script>
 
     <script type='text/javascript'>
-      $(function(){
-          var vController = new viewController();
-          var w = new Word('動く', 'ugoku' );
-          vController.setScore_a( '1235' );
-          vController.setWord_a( w, 2 );
-      });
+    $(function(){
+        var vController = new viewController();
+	var mediator = new Mediator( vController );
+
+	var qController = new questionController( mediator );
+	mediator.qController = qController;
+
+	$(window).keyup(function(e){
+	    qController.judge( e.keyCode );
+	});	
+    });
     </script>
   </head>
 
   <body>
     TEST Page.
 <div class='team'>
+<div id='judge'></div>
 <div id='score_a' class='score'></div>
 <div id='word_word_a' class='word'></div>
 <div id='word_ruby_a' class='ruby'></div>
