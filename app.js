@@ -41,10 +41,10 @@ var server = http.createServer(app).listen(app.get('port'), function(){
 
 var io = require('socket.io').listen(server);
 io.sockets.on( 'connection', function( socket ){
-    socket.on('msg send', function(msg){
-	console.log( msg );
-	socket.emit('msg push', 'nonono');
-	socket.broadcast.emit('msg push', 'wwwwwwwwww' );
+    socket.on('answer', function( answerData ){
+	console.log( answerData );
+	socket.emit('changed', answerData );
+	socket.broadcast.emit('changed', answerData )
     });
     socket.on( 'disconnect', function(){
 	console.log(' disconnect' );

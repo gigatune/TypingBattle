@@ -7,8 +7,9 @@ function questionController( med ){
 
 questionController.prototype.judge = function( keycode ){
     var char = String.fromCharCode( keycode ).toLowerCase();
-    this.word.judge( char );
-    this.socket.emit('msg send', 'aiueo');
+    if( this.word.judge( char ) == true ){
+	this.socket.emit('answer', ( 'a,' + this.word.answerIndex ) );
+    };
 };
 
 questionController.prototype.currentWord = function(){

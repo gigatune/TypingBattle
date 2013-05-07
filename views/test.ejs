@@ -26,17 +26,22 @@
 	$('#teamAButton').click( function(){ qController.setTeam( 'a' ) }  );
 	$('#teamBButton').click( function(){ qController.setTeam( 'b' ) }  );
 
-
 	var socket = io.connect('http://localhost:3000');
 	socket.on('connect', function(){
 	    console.log('connected');
 	});
 
-	socket.on('msg push', function( receiveData ){
-	    mediator.change();
+	socket.on('changed', function( receiveData ){
+	    var tmp = receiveData.split(',');
+	    var word = new Word('動く', 'ugoku' );
+	    vController.setWord(tmp[0], word, tmp[1]);
 	});
 
 	qController.socket = socket;
+
+	var word = new Word('動く', 'ugoku');
+	vController.setWord('a', word, 0);
+	vController.setWord('b', word, 0);
 
     });
 
@@ -51,11 +56,22 @@
     <label><input id='teamBButton' type='radio' value='b' name='team' >team B</label>
 </div>
 
+<h2>Team A</h2>
 <div class='team'>
 <div id='judge'></div>
 <div id='score_a' class='score'></div>
 <div id='word_word_a' class='word'></div>
 <div id='word_ruby_a' class='ruby'></div>
 </div>
+
+
+<h2>Team B</h2>
+<div class='team'>
+<div id='judge'></div>
+<div id='score_b' class='score'></div>
+<div id='word_word_b' class='word'></div>
+<div id='word_ruby_b' class='ruby'></div>
+</div>
+
   </body>
 </html>
