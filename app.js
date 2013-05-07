@@ -32,6 +32,20 @@ app.get('/', routesIndex.index);
 app.get('/users', user.list);
 app.get('/test', routesTest.test);
 
-http.createServer(app).listen(app.get('port'), function(){
+//http.createServer(app).listen(app.get('port'), function(){
+//  console.log('Express server listening on port ' + app.get('port'));
+//});
+var server = http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+var io = require('socket.io').listen(server);
+io.sockets.on( 'connection', function( socket ){
+    socket.on('msg send', function(msg){
+	console.log( msg );
+    });
+    socket.on( 'disconnect', function(){
+	console.log(' disconnect' );
+    });
+});
+

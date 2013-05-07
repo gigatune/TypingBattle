@@ -4,6 +4,7 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/stylesheets/base.css' />
+    <script type='text/javascript' src='/socket.io/socket.io.js'></script>
     <script type='text/javascript' src='javascripts/jquery.js'></script>
     <script type='text/javascript' src='javascripts/Word.js'></script>
     <script type='text/javascript' src='javascripts/questionController.js'></script>
@@ -24,6 +25,14 @@
 
 	$('#teamAButton').click( function(){ qController.setTeam( 'a' ) }  );
 	$('#teamBButton').click( function(){ qController.setTeam( 'b' ) }  );
+
+
+	var socket = io.connect('http://localhost:3000');
+	socket.on('connect', function(){
+	    console.log('connected');
+	});
+	qController.socket = socket;
+
     });
 
     </script>
