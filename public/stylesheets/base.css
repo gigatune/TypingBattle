@@ -1,0 +1,15 @@
+div{
+    padding : 10px;
+}
+
+div.score{
+    background-color : #faa;
+}
+
+div.word{
+    background-color : #aaf
+}
+
+div.ruby{
+    background-color : #afa;
+}
