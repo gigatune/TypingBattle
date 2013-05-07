@@ -10,17 +10,13 @@
     <script type='text/javascript' src='javascripts/questionManager.js'></script>
     <script type='text/javascript' src='javascripts/questionController.js'></script>
     <script type='text/javascript' src='javascripts/viewController.js'></script>
-    <script type='text/javascript' src='javascripts/Mediator.js'></script>
 
     <script type='text/javascript'>
     $(function(){
         var vController = new viewController();
 	var qManager = new questionManager();
-	var mediator = new Mediator( vController );
 
-	var qController = new questionController( mediator, qManager );
-	mediator.qController = qController;
-
+	var qController = new questionController( qManager );
 
 	$(window).keyup(function(e){
 	    qController.judge( e.keyCode );

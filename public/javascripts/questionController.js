@@ -1,6 +1,5 @@
-function questionController( med, qm ){
+function questionController( qm ){
     this.team = null;
-    this.mediator = med;
     this.qManager = qm;
     this.socket = null;
     this.wordIndex = 0;
