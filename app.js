@@ -43,6 +43,8 @@ var io = require('socket.io').listen(server);
 io.sockets.on( 'connection', function( socket ){
     socket.on('msg send', function(msg){
 	console.log( msg );
+	socket.emit('msg push', 'nonono');
+	socket.broadcast.emit('msg push', 'wwwwwwwwww' );
     });
     socket.on( 'disconnect', function(){
 	console.log(' disconnect' );

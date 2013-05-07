@@ -8,7 +8,6 @@ function questionController( med ){
 questionController.prototype.judge = function( keycode ){
     var char = String.fromCharCode( keycode ).toLowerCase();
     this.word.judge( char );
-    this.mediator.change();
     this.socket.emit('msg send', 'aiueo');
 };
 

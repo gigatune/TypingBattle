@@ -31,6 +31,11 @@
 	socket.on('connect', function(){
 	    console.log('connected');
 	});
+
+	socket.on('msg push', function( receiveData ){
+	    mediator.change();
+	});
+
 	qController.socket = socket;
 
     });
