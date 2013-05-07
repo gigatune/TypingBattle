@@ -7,6 +7,7 @@
     <script type='text/javascript' src='/socket.io/socket.io.js'></script>
     <script type='text/javascript' src='javascripts/jquery.js'></script>
     <script type='text/javascript' src='javascripts/Word.js'></script>
+    <script type='text/javascript' src='javascripts/questionManager.js'></script>
     <script type='text/javascript' src='javascripts/questionController.js'></script>
     <script type='text/javascript' src='javascripts/viewController.js'></script>
     <script type='text/javascript' src='javascripts/Mediator.js'></script>
@@ -14,10 +15,12 @@
     <script type='text/javascript'>
     $(function(){
         var vController = new viewController();
+	var qManager = new questionManager();
 	var mediator = new Mediator( vController );
 
-	var qController = new questionController( mediator );
+	var qController = new questionController( mediator, qManager );
 	mediator.qController = qController;
+
 
 	$(window).keyup(function(e){
 	    qController.judge( e.keyCode );
@@ -33,13 +36,13 @@
 
 	socket.on('changed', function( receiveData ){
 	    var tmp = receiveData.split(',');
-	    var word = new Word('動く', 'ugoku' );
-	    vController.setWord(tmp[0], word, tmp[1]);
+	    var word = qManager.getWordAtIndex( tmp[1] );
+	    vController.setWord(tmp[0], word, tmp[2]);
 	});
 
 	qController.socket = socket;
 
-	var word = new Word('動く', 'ugoku');
+	var word = qController.currentWord();
 	vController.setWord('a', word, 0);
 	vController.setWord('b', word, 0);
 
