@@ -13,6 +13,7 @@ questionController.prototype.judge = function( keycode ){
 	if( this.word.isFinished() == true ){
 	    if( this.qManager.isLastWord( this.wordIndex ) == true ){
 		alert( 'Finish!' );
+		this.socket.emit('answer', ( this.team + ',' + '1' + ',' + '0') );
 	    }else{
 		this.incrementWord();
 		this.socket.emit('answer', ( this.team + ',' + this.wordIndex + ',' + this.word.answerIndex ) );

@@ -10,7 +10,10 @@ function questionManager(){
     this.words.push( new Word( 'print', 'print' ) );
 
     this.getWordAtIndex = function( idx ){
-	return this.words[ idx ];
+	if(  this.words[ idx ] ){
+	    return this.words[ idx ];
+	};
+	return new Word('', '');
     };
 
     this.isLastWord = function( idx ){
@@ -18,5 +21,13 @@ function questionManager(){
 	    return true;
 	};
 	return false;
+    };
+
+    this.progressValue = function( idx ){
+	return ( ( idx / this.words.length ) * 100 );
+    };
+
+    this.progressLabel = function( idx ){
+	return idx + "/" + this.words.length;
     };
 };

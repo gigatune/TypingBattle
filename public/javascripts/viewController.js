@@ -5,5 +5,8 @@ function viewController( ){
         $('#word_ruby_' + team ).html( word.ruby.substr( index, word.length ) );
     };
 
-
+    this.setGraph = function( team, label, val ){
+	$('#graphbar_' + team ).html( label );
+	$('#graphbar_' + team ).css( 'width', ( val + '%' ) );
+    };
 };

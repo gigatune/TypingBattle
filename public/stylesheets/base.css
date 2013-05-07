@@ -2,10 +2,41 @@ div{
     padding : 10px;
 }
 
+div.team{
+    width: 800px;
+}
+
+div.graph{
+    border-top : 1px solid gray;
+    border-left : 1px solid gray;
+    border-right : 1px solid gray;
+    padding : 0px;
+}
+
 div.word{
     background-color : #aaf
 }
 
 div.ruby{
     background-color : #afa;
+}
+
+.graph{
+    position: relative; /* IE is dumb */
+    width: 798px;
+    height: 2em;
+    line-height : 2em;
+    padding : 0px;
+}
+
+.graphbar{
+    display : block;
+    position : relative;
+    background-color : #f88;
+    color : black;
+}
+
+.graph .graphbar span{
+    position : absolute;
+    left : 20px;
 }
