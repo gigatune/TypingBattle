@@ -6,7 +6,7 @@ function viewController(){
 
     this.setWord_a = function( word, index ){
         $('#word_word_a').html( word.shownWord );
-        $('#word_ruby_a').html( word.showRuby( index ) );
+        $('#word_ruby_a').html( word.ruby.substr( index, word.length ) );
     };
 
 };
