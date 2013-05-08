@@ -13,6 +13,6 @@ function viewController( ){
     this.finished = function( team, time ){
 	this.setGraph( team, '-', '100' );
 	this.setWord( team, new Word('',''), 0 );
-	$('#finished_time_' + team ).html( time );
+	$('#finished_time_' + team ).html( ( time / 1000 ) + '秒' );
     };
 };
