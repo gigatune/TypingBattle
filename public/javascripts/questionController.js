@@ -9,12 +9,16 @@ function questionController( qm, vc ){
     this.isStarted = 0;
 };
 
-questionController.prototype.judge = function( keycode ){
+questionController.prototype.start = function(){
+    this.viewController.setWord(this.team, this.word, 0 );
+    this.isStarted = 1;
+    this.timer.start();
+};
 
+questionController.prototype.judge = function( keycode ){
     if( this.isStarted == 0 ){
-	this.isStarted = 1;
-	this.timer.start();
-    }
+	return;
+    };
 
     var char = String.fromCharCode( keycode );
     if( this.word.judge( char ) == true ){

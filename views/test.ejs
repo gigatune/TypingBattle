@@ -27,6 +27,10 @@
 	qController.timer = timer;
 
 	$(window).keyup(function(e){
+
+	    if( e.keyCode == 13){  // start
+		qController.start();
+	    };
 	    qController.judge( e.keyCode );
 	});	
 
@@ -53,9 +57,6 @@
 
 	qController.socket = socket;
 
-	var word = qController.currentWord();
-	vController.setWord('a', word, 0);
-	vController.setWord('b', word, 0);
 	vController.setGraph( 'a', qManager.progressLabel( 0 ), 0 );
 	vController.setGraph( 'b', qManager.progressLabel( 0 ), 0 );
 
