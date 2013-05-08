@@ -1,5 +1,16 @@
 function viewController( ){
 
+    this.initView = function(){
+	$('#teamSelector').show();
+	$('#playingArea').hide();
+
+    };
+
+    this.playingView = function(){
+	$('#teamSelector').hide();
+	$('#playingArea').show();
+    };
+
     this.setWord = function( team, word, index ){
         $('#word_word_' + team ).html( word.shownWord );
         $('#word_ruby_' + team ).html( word.ruby.substr( index, word.length ) );
@@ -15,4 +26,6 @@ function viewController( ){
 	this.setWord( team, new Word('',''), 0 );
 	$('#finished_time_' + team ).html( ( time / 1000 ) + '秒' );
     };
+
+
 };
