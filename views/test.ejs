@@ -38,7 +38,7 @@
 	socket.on('changed', function( receiveData ){
 	    var tmp = receiveData.split(',');
 	    if(( tmp[3] ) && ( tmp[3] == 'finished' ) ){
-		vController.finished( tmp[0] );
+		vController.finished( tmp[0], tmp[4] );
 	    }else{
 		if( tmp[0] != qController.getTeam() ){
 		    vController.setGraph( tmp[0], qManager.progressLabel( tmp[1] ), qManager.progressValue( tmp[1] ) );
@@ -75,6 +75,7 @@
 <div id='graph_a' class='graph'><span id='graphbar_a' class='graphbar'></span></div>
 <div id='word_word_a' class='word'></div>
 <div id='word_ruby_a' class='ruby'></div>
+<div id='finished_time_a'></div>
 </div>
 
 
@@ -83,6 +84,7 @@
 <div id='graph_b' class='graph'><span id='graphbar_b' class='graphbar'></span></div>
 <div id='word_word_b' class='word'></div>
 <div id='word_ruby_b' class='ruby'></div>
+<div id='finished_time_a'></div>
 </div>
 
   </body>

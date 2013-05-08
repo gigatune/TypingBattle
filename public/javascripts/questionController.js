@@ -18,7 +18,6 @@ questionController.prototype.judge = function( keycode ){
 
     var char = String.fromCharCode( keycode );
     if( this.word.judge( char ) == true ){
-
 	// ToDo : refactoring -> ( send socket / local view reload )
 
 	this.viewController.setGraph( this.team, this.qManager.progressLabel( this.wordIndex ), this.qManager.progressValue( this.wordIndex ) );
@@ -28,8 +27,8 @@ questionController.prototype.judge = function( keycode ){
 	if( this.word.isFinished() == true ){
 	    if( this.qManager.isLastWord( this.wordIndex ) == true ){
 		alert( 'Finish!' );
-		this.socket.emit('answer', ( this.team + ',' + '1' + ',' + '0' + ',' + 'finished') );
-		this.viewController.finished( this.team );
+		this.socket.emit('answer', ( this.team + ',' + '1' + ',' + '0' + ',' + 'finished' + ',' + this.timer.getPassedTime() ) );
+		this.viewController.finished( this.team, this.timer.getPassedTime() );
 		this.timer.end();
 	    }else{
 		this.incrementWord();

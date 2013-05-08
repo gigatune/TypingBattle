@@ -1,8 +1,8 @@
 function PlayingTimer(){
     var timerId;
+    var passedTime = 0;
 
     this.start = function(){
-	var passedTime = 0;
 	var interval = 1000;  // ms
 	var maxTime = 1000 * 60 * 10 // 10sec
 
@@ -21,6 +21,9 @@ function PlayingTimer(){
 	window.clearInterval( timerId );
     };
 
+    this.getPassedTime = function(){
+	return passedTime;
+    };
 
 };
 
