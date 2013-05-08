@@ -40,7 +40,7 @@ function questionManager(){
 	for( var i = 0 ; i < idx ; i++ ){
 	    progressChar += this.words[i].ruby.length;
 	}
-	progressChar += wordIndex;
+	progressChar += parseInt( wordIndex );
 
 	var pValue = Math.floor(( progressChar / this.charLength ) * 100 );
 	return ( pValue );
