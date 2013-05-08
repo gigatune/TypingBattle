@@ -1,4 +1,4 @@
-function questionController( qm, vc ){
+function questionController( qm, vc, am ){
     this.team = null;
     this.qManager = qm;
     this.socket = null;
@@ -7,6 +7,7 @@ function questionController( qm, vc ){
     this.viewController = vc;
     this.timer = null;
     this.isStarted = 0;
+    this.audioManager = am;
 };
 
 questionController.prototype.start = function(){
@@ -28,6 +29,8 @@ questionController.prototype.judge = function( keycode ){
     if( this.word.judge( char ) == true ){
 	// ToDo : refactoring -> ( send socket / local view reload )
 
+	this.audioManager.punch();
+
 	this.viewController.setGraph( this.team, this.qManager.progressLabel( this.wordIndex ), this.qManager.progressValue( this.wordIndex, this.word.answerIndex ) );
 	this.viewController.setWord(this.team, this.word, this.word.answerIndex );
 
@@ -47,6 +50,14 @@ questionController.prototype.judge = function( keycode ){
 	    };
 	};
 
+    }else{
+	if( keycode == 13 ){
+	    return;
+	}
+	if( keycode == 9 ){
+	    return;
+	}
+	this.audioManager.fail();
     };
 };
 

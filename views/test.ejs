@@ -11,6 +11,7 @@
     <script type='text/javascript' src='javascripts/questionManager.js'></script>
     <script type='text/javascript' src='javascripts/questionController.js'></script>
     <script type='text/javascript' src='javascripts/viewController.js'></script>
+    <script type='text/javascript' src='javascripts/AudioManager.js'></script>
 
     <script type='text/javascript'>
     $(function(){
@@ -19,11 +20,13 @@
 
         var vController = new viewController();
 
+	var aManager = new AudioManager();
+
 	vController.initView();
 
 	var qManager = new questionManager();
 
-	var qController = new questionController( qManager, vController );
+	var qController = new questionController( qManager, vController, aManager );
 	qController.timer = timer;
 
 	$(window).keyup(function(e){
