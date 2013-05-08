@@ -8,6 +8,8 @@ function questionManager(){
     this.words.push( new Word( '仕様です', 'siyoudesu' ) );
     this.words.push( new Word( '連絡が遅くなり申し訳ありません', 'renrakugaosokunarimousiwakearimasenn' ) );
     this.words.push( new Word( 'print', 'print' ) );
+    this.words.push( new Word( 'INSUITE', 'insuite' ) );
+    this.words.push( new Word( 'DreamArts', 'DreamArts' ) );
 
     this.getWordAtIndex = function( idx ){
 	if(  this.words[ idx ] ){

@@ -7,7 +7,7 @@ function questionController( qm ){
 };
 
 questionController.prototype.judge = function( keycode ){
-    var char = String.fromCharCode( keycode ).toLowerCase();
+    var char = String.fromCharCode( keycode );
     if( this.word.judge( char ) == true ){
 	this.socket.emit('answer', ( this.team + ',' + this.wordIndex + ',' + this.word.answerIndex ) );
 	if( this.word.isFinished() == true ){

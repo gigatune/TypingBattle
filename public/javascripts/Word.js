@@ -13,7 +13,7 @@ Word.prototype.judge = function( character ){
 	return false;
     };
 
-    if( this.ruby[ this.answerIndex ] == character ){
+    if( this.ruby[ this.answerIndex ].toLowerCase() == character.toLowerCase() ){
         this.answerIndex = this.answerIndex + 1;
         return true;
     }
