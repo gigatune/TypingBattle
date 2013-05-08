@@ -6,6 +6,7 @@
     <link rel='stylesheet' href='/stylesheets/base.css' />
     <script type='text/javascript' src='/socket.io/socket.io.js'></script>
     <script type='text/javascript' src='javascripts/jquery.js'></script>
+    <script type='text/javascript' src='javascripts/PlayingTimer.js'></script>
     <script type='text/javascript' src='javascripts/Word.js'></script>
     <script type='text/javascript' src='javascripts/questionManager.js'></script>
     <script type='text/javascript' src='javascripts/questionController.js'></script>
@@ -13,10 +14,14 @@
 
     <script type='text/javascript'>
     $(function(){
+
+	var timer = new PlayingTimer();
+
         var vController = new viewController();
 	var qManager = new questionManager();
 
 	var qController = new questionController( qManager, vController );
+	qController.timer = timer;
 
 	$(window).keyup(function(e){
 	    qController.judge( e.keyCode );
@@ -64,6 +69,7 @@
     <label><input id='teamBButton' type='radio' value='b' name='team' >team B</label>
 </div>
 
+<div id='timerDiv'>0</div>
 <h2>Team A</h2>
 <div class='team'>
 <div id='graph_a' class='graph'><span id='graphbar_a' class='graphbar'></span></div>

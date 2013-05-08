@@ -5,9 +5,17 @@ function questionController( qm, vc ){
     this.wordIndex = 0;
     this.word = this.qManager.getWordAtIndex( this.wordIndex );
     this.viewController = vc;
+    this.timer = null;
+    this.isStarted = 0;
 };
 
 questionController.prototype.judge = function( keycode ){
+
+    if( this.isStarted == 0 ){
+	this.isStarted = 1;
+	this.timer.start();
+    }
+
     var char = String.fromCharCode( keycode );
     if( this.word.judge( char ) == true ){
 
@@ -22,6 +30,7 @@ questionController.prototype.judge = function( keycode ){
 		alert( 'Finish!' );
 		this.socket.emit('answer', ( this.team + ',' + '1' + ',' + '0' + ',' + 'finished') );
 		this.viewController.finished( this.team );
+		this.timer.end();
 	    }else{
 		this.incrementWord();
 
