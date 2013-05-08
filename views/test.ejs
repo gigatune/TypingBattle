@@ -48,7 +48,7 @@
 		vController.finished( tmp[0], tmp[4] );
 	    }else{
 		if( tmp[0] != qController.getTeam() ){
-		    vController.setGraph( tmp[0], qManager.progressLabel( tmp[1] ), qManager.progressValue( tmp[1] ) );
+		    vController.setGraph( tmp[0], qManager.progressLabel( tmp[1] ), qManager.progressValue( tmp[1], tmp[2] ) );
 		    var word = qManager.getWordAtIndex( tmp[1] );
 		    vController.setWord(tmp[0], word, tmp[2]);
 		}

@@ -28,7 +28,7 @@ questionController.prototype.judge = function( keycode ){
     if( this.word.judge( char ) == true ){
 	// ToDo : refactoring -> ( send socket / local view reload )
 
-	this.viewController.setGraph( this.team, this.qManager.progressLabel( this.wordIndex ), this.qManager.progressValue( this.wordIndex ) );
+	this.viewController.setGraph( this.team, this.qManager.progressLabel( this.wordIndex ), this.qManager.progressValue( this.wordIndex, this.word.answerIndex ) );
 	this.viewController.setWord(this.team, this.word, this.word.answerIndex );
 
 	this.socket.emit('answer', ( this.team + ',' + this.wordIndex + ',' + this.word.answerIndex ) );
