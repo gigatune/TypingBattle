@@ -1,22 +1,33 @@
-function questionController( qm ){
+function questionController( qm, vc ){
     this.team = null;
     this.qManager = qm;
     this.socket = null;
     this.wordIndex = 0;
     this.word = this.qManager.getWordAtIndex( this.wordIndex );
+    this.viewController = vc;
 };
 
 questionController.prototype.judge = function( keycode ){
     var char = String.fromCharCode( keycode );
     if( this.word.judge( char ) == true ){
+
+	// ToDo : refactoring -> ( send socket / local view reload )
+
+	this.viewController.setGraph( this.team, this.qManager.progressLabel( this.wordIndex ), this.qManager.progressValue( this.wordIndex ) );
+	this.viewController.setWord(this.team, this.word, this.word.answerIndex );
+
 	this.socket.emit('answer', ( this.team + ',' + this.wordIndex + ',' + this.word.answerIndex ) );
 	if( this.word.isFinished() == true ){
 	    if( this.qManager.isLastWord( this.wordIndex ) == true ){
 		alert( 'Finish!' );
-		this.socket.emit('answer', ( this.team + ',' + '1' + ',' + '0') );
+		this.socket.emit('answer', ( this.team + ',' + '1' + ',' + '0' + ',' + 'finished') );
+		this.viewController.finished( this.team );
 	    }else{
 		this.incrementWord();
+
 		this.socket.emit('answer', ( this.team + ',' + this.wordIndex + ',' + this.word.answerIndex ) );
+		this.viewController.setGraph( this.team, this.qManager.progressLabel( this.wordIndex ), this.qManager.progressValue( this.wordIndex ) );
+		this.viewController.setWord(this.team, this.word, this.word.answerIndex );
 	    };
 	};
 
@@ -35,4 +46,8 @@ questionController.prototype.currentWord = function(){
 
 questionController.prototype.setTeam = function( tName ){
     this.team = tName;
+};
+
+questionController.prototype.getTeam = function(){
+    return this.team;
 };

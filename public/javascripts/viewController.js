@@ -9,4 +9,9 @@ function viewController( ){
 	$('#graphbar_' + team ).html( label );
 	$('#graphbar_' + team ).css( 'width', ( val + '%' ) );
     };
+
+    this.finished = function( team ){
+	this.setGraph( team, '-', '100' );
+	this.setWord( team, new Word('',''), 0 );
+    };
 };

@@ -16,7 +16,7 @@
         var vController = new viewController();
 	var qManager = new questionManager();
 
-	var qController = new questionController( qManager );
+	var qController = new questionController( qManager, vController );
 
 	$(window).keyup(function(e){
 	    qController.judge( e.keyCode );
@@ -32,9 +32,15 @@
 
 	socket.on('changed', function( receiveData ){
 	    var tmp = receiveData.split(',');
-	    vController.setGraph( tmp[0], qManager.progressLabel( tmp[1] ), qManager.progressValue( tmp[1] ) );
-	    var word = qManager.getWordAtIndex( tmp[1] );
-	    vController.setWord(tmp[0], word, tmp[2]);
+	    if(( tmp[3] ) && ( tmp[3] == 'finished' ) ){
+		vController.finished( tmp[0] );
+	    }else{
+		if( tmp[0] != qController.getTeam() ){
+		    vController.setGraph( tmp[0], qManager.progressLabel( tmp[1] ), qManager.progressValue( tmp[1] ) );
+		    var word = qManager.getWordAtIndex( tmp[1] );
+		    vController.setWord(tmp[0], word, tmp[2]);
+		}
+	    }
 	});
 
 	qController.socket = socket;
