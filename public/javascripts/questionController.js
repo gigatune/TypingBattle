@@ -10,6 +10,9 @@ function questionController( qm, vc ){
 };
 
 questionController.prototype.start = function(){
+    if( this.isStarted == 1 ){
+	return;
+    };
     this.viewController.setWord(this.team, this.word, 0 );
     this.isStarted = 1;
     this.timer.start();
@@ -21,6 +24,7 @@ questionController.prototype.judge = function( keycode ){
     };
 
     var char = String.fromCharCode( keycode );
+
     if( this.word.judge( char ) == true ){
 	// ToDo : refactoring -> ( send socket / local view reload )
 
