@@ -1,17 +1,17 @@
 div{
-    padding : 10px;
 }
 
-div.team{
-    width: 800px;
+body{
+    background-image : url( '/images/texturez_4065_s.jpg' );
+    background-size : 100%;
 }
 
-div.graph{
-    border-top : 1px solid gray;
-    border-left : 1px solid gray;
-    border-right : 1px solid gray;
-    padding : 0px;
+#baseContainer{
+    margin : 0 auto;
+    border : 1px solid gray;
+    padding : 50px 0px;
 }
+
 
 div.word{
     background-color : #aaf
@@ -21,12 +21,60 @@ div.ruby{
     background-color : #afa;
 }
 
+#teamSelector{
+    text-align : center;
+    margin-left : auto;
+    margin-right : auto;
+    border : 3px double gray;
+    background-color : #ddd;
+    width : 1000x;
+    height : 300px;
+}
+
+#teamSelectorInformation{
+    font-size : 40pt;
+    font-family : Arial;
+    margin : 5px 0px 30px 0px;
+}
+
+
+#teamList li{
+    display : inline;
+    margin : 5px 20px;
+}
+
+
+/* graph and play */
+
+div#playingHeader{
+    width : 860px;
+    margin : 0px auto;
+    padding-top : 20px;
+    padding-left : 20px;
+    padding-bottom : 30px;
+    margin-bottom : 30px;
+    height : 50px;
+    background-color : white;
+}
+
+
+/* graph */
+div.graph{
+    border : 1px solid gray;
+    padding : 0px;
+}
+
+div#graphs{
+    float : left;
+}
+
 .graph{
     position: relative; /* IE is dumb */
-    width: 798px;
+    width: 700px;
     height: 2em;
     line-height : 2em;
     padding : 0px;
+    margin : 0px auto 0px 0px;
 }
 
 .graphbar{
@@ -39,4 +87,46 @@ div.ruby{
 .graph .graphbar span{
     position : absolute;
     left : 20px;
+}
+
+
+
+/* team css */
+
+div#teams{
+    margin : 0px auto;
+    width : 880px;
+}
+
+div.team{
+    width : 394px;
+    float : left;
+    border : 3px double gray;
+    border-radius: 10px;        /* CSS3草案 */  
+    -webkit-border-radius: 10px;    /* Safari,Google Chrome用 */  
+    -moz-border-radius: 10px;   /* Firefox用 */  
+    margin : 0px 20px;
+    padding : 0px;
+    background-color : white;
+}
+
+div.team h2{
+    width : 100%;
+    text-align : center;
+    margin-left : auto;
+    margin-right : auto;
+}
+
+div.team div.word{
+    text-align : center;
+}
+
+
+div#timerDiv{
+    width : 120px;
+    height : 50px;
+    float : left;
+    text-align : right;
+    vertical-align : bottom;
+    display : inline;
 }

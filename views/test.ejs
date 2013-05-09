@@ -4,6 +4,7 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/stylesheets/base.css' />
+    <link rel='stylesheet' href='/stylesheets/button.css' />
     <script type='text/javascript' src='/socket.io/socket.io.js'></script>
     <script type='text/javascript' src='javascripts/jquery.js'></script>
     <script type='text/javascript' src='javascripts/PlayingTimer.js'></script>
@@ -63,39 +64,56 @@
 	vController.setGraph( 'a', qManager.progressLabel( 0 ), 0 );
 	vController.setGraph( 'b', qManager.progressLabel( 0 ), 0 );
 
+	// develop view
+    //	qController.setTeam( 'a' );
+    //  vController.playingView();
+
     });
 
     </script>
   </head>
 
   <body>
-    TEST Page.
+
 
 <div id='teamSelector'>
-    <label><input id='teamAButton' type='radio' value='a' name='team' >team A</label>
-    <br>
-    <label><input id='teamBButton' type='radio' value='b' name='team' >team B</label>
-
-</div>
-
-<div id='playingArea'>
-<div id='timerDiv'>0</div>
-<h2>Team A</h2>
-<div class='team'>
-<div id='graph_a' class='graph'><span id='graphbar_a' class='graphbar'></span></div>
-<div id='word_word_a' class='word'></div>
-<div id='word_ruby_a' class='ruby'></div>
-<div id='finished_time_a'></div>
+<div id='teamSelectorInformation'>Select Team A or B! </div>
+<ul id='teamList'>
+<li>    <a href="#" class="css_btn_class" id='teamAButton'>Team A</a>
+<li>    <a href="#" class="css_btn_class" id='teamBButton'>Team B</a>
+</ul>
 </div>
 
 
-<h2>Team B</h2>
-<div class='team'>
-<div id='graph_b' class='graph'><span id='graphbar_b' class='graphbar'></span></div>
-<div id='word_word_b' class='word'></div>
-<div id='word_ruby_b' class='ruby'></div>
-<div id='finished_time_b'></div>
-</div>
+
+<div id='baseContainer'>
+  
+  <div id='playingArea'>
+
+    <div id='playingHeader'>
+      <div id='graphs'>
+	<div id='graph_a' class='graph'><span id='graphbar_a' class='graphbar'></span><span id='finished_time_a'></span></div>
+	<div id='graph_b' class='graph'><span id='graphbar_b' class='graphbar'></span><span id='finished_time_b'></span></div>
+      </div>
+      <div id='timerDiv'>0</div>
+      <span STYLE='clear:both'/>
+    </div>
+
+    <div id='teams'>
+      <div class='team'>
+	<h2>Team A</h2>
+	<div id='word_word_a' class='word'></div>
+	<div id='word_ruby_a' class='ruby'></div>
+      </div>
+      
+      <div class='team'>
+	<h2>Team B</h2>
+	<div id='word_word_b' class='word'></div>
+	<div id='word_ruby_b' class='ruby'></div>
+      </div>
+      <br STYLE='clear:both' />
+    </div>
+  </div>
 </div>
 
   </body>
