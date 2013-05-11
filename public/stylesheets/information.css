@@ -1,0 +1,27 @@
+img.information{
+    position : absolute;
+}
+
+#indicator{
+    margin: 50px 0px 0px 100px;
+}
+
+#opponents_for_a{
+    margin: 240px 0px 0px 540px;
+}
+
+#timer{
+    margin: 50px 0px 0px 750px;
+}
+
+#word_for_a{
+    margin: 170px 0px 0px 100px;
+}
+
+#ruby_for_a{
+    margin: 270px 0px 0px 100px;
+}
+
+#enter{
+    margin: 380px 0px 0px 350px;
+}

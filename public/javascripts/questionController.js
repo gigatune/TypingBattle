@@ -14,6 +14,8 @@ questionController.prototype.start = function(){
     if( this.isStarted == 1 ){
 	return;
     };
+
+    this.viewController.start();
     this.viewController.setWord(this.team, this.word, 0 );
     this.isStarted = 1;
     this.timer.start();

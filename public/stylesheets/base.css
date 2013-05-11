@@ -43,12 +43,11 @@ div.ruby{
     margin : 5px 20px;
 }
 
-
 /* graph and play */
 
 div#playingHeader{
     width : 860px;
-    margin : 0px auto;
+    margin : 0px 20px;
     padding-top : 20px;
     padding-left : 20px;
     padding-bottom : 30px;
@@ -94,7 +93,7 @@ div#graphs{
 /* team css */
 
 div#teams{
-    margin : 0px auto;
+    margin : 0px 20px;
     width : 880px;
 }
 
@@ -138,4 +137,14 @@ div.word{
 
 div.ruby{
     height : 100px;
+}
+
+div#filter{
+    position : absolute;
+    width : 1000px;
+    height : 1000px;
+    background-color : #777;
+    filter: alpha(opacity=60);
+    -moz-opacity:0.60;
+    opacity:0.60;
 }
