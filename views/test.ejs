@@ -43,7 +43,7 @@
 	$('#teamAButton').click( function(){ qController.setTeam( 'a' ); vController.playingView( 'a' ); }  );
 	$('#teamBButton').click( function(){ qController.setTeam( 'b' ); vController.playingView( 'b' ); }  );
 
-	var socket = io.connect('http://localhost:3000');
+	var socket = io.connect('http://sheltered-shelf-3885.herokuapp.com/');
 	socket.on('connect', function(){
 	    console.log('connected');
 	});
