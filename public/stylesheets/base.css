@@ -8,7 +8,7 @@ body{
 
 #baseContainer{
     margin : 0 auto;
-    border : 1px solid gray;
+/*    border : 1px solid gray; */
     padding : 50px 0px;
 }
 
@@ -28,7 +28,7 @@ div.ruby{
     border : 3px double gray;
     background-color : #ddd;
     width : 1000x;
-    height : 400px;
+    height : 450px;
 }
 
 #teamSelectorInformation{
@@ -100,6 +100,7 @@ div#teams{
 
 div.team{
     width : 394px;
+    height : 300px;
     float : left;
     border : 3px double gray;
     border-radius: 10px;        /* CSS3草案 */  
@@ -129,4 +130,12 @@ div#timerDiv{
     text-align : right;
     vertical-align : bottom;
     display : inline;
+}
+
+div.word{
+    height : 100px;
+}
+
+div.ruby{
+    height : 100px;
 }
