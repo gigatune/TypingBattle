@@ -8,6 +8,7 @@ function questionController( qm, vc, am ){
     this.timer = null;
     this.isStarted = 0;
     this.audioManager = am;
+    this.isFinished = 0;
 };
 
 questionController.prototype.start = function(){
@@ -23,6 +24,10 @@ questionController.prototype.start = function(){
 
 questionController.prototype.judge = function( keycode ){
     if( this.isStarted == 0 ){
+	return;
+    };
+
+    if( this.isFinished == 1 ){
 	return;
     };
 
@@ -43,6 +48,7 @@ questionController.prototype.judge = function( keycode ){
 		this.socket.emit('answer', ( this.team + ',' + '1' + ',' + '0' + ',' + 'finished' + ',' + this.timer.getPassedTime() ) );
 		this.viewController.finished( this.team, this.timer.getPassedTime() );
 		this.timer.end();
+		this.isFinished = 1;
 	    }else{
 		this.incrementWord();
 
