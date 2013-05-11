@@ -4,5 +4,7 @@
  */
 
 exports.test = function(req, res){
-  res.render('test', { title: 'Express' });
+    res.render('test', { title: 'Express',
+			 host : req.headers.host
+		     });
 };
