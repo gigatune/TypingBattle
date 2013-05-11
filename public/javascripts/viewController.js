@@ -6,9 +6,14 @@ function viewController( ){
 
     };
 
-    this.playingView = function(){
+    this.playingView = function( team ){
 	$('#teamSelector').hide();
 	$('#playingArea').show();
+	if( team == 'b' ){
+	    $('#opponents').css('margin-left', 100 );
+	    $('#word_info').css('margin-left', 550 );
+	    $('#ruby_info').css('margin-left', 550 );
+	}
     };
 
     this.start = function(){

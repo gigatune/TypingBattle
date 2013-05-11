@@ -40,8 +40,8 @@
 	    qController.judge( e.keyCode );
 	});	
 
-	$('#teamAButton').click( function(){ qController.setTeam( 'a' ); vController.playingView(); }  );
-	$('#teamBButton').click( function(){ qController.setTeam( 'b' ); vController.playingView(); }  );
+	$('#teamAButton').click( function(){ qController.setTeam( 'a' ); vController.playingView( 'a' ); }  );
+	$('#teamBButton').click( function(){ qController.setTeam( 'b' ); vController.playingView( 'b' ); }  );
 
 	var socket = io.connect('http://localhost:3000');
 	socket.on('connect', function(){
@@ -67,8 +67,8 @@
 	vController.setGraph( 'b', qManager.progressLabel( 0 ), 0 );
 
 	// develop view
-	qController.setTeam( 'b' );
-	vController.playingView();
+//	qController.setTeam( 'b' );
+//	vController.playingView();
 
     });
 
