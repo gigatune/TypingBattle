@@ -1,5 +1,6 @@
 img.information{
     position : absolute;
+    z-index : 10;
 }
 
 #indicator{
