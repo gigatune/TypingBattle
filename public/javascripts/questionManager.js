@@ -1,4 +1,4 @@
-function questionManager(){
+function questionManager( qid ){
 
     this.setInfo = function(){
 	var len = 0;
@@ -10,10 +10,18 @@ function questionManager(){
     };
 
     this.words = Array();
-    this.words.push( new Word( '動く', 'ugoku' ) );
-    this.words.push( new Word( '働く', 'hataraku' ) );
-    this.words.push( new Word( 'お世話になります', 'osewaninarimasu' ) );
-    this.words.push( new Word( '仕様です', 'siyoudesu' ) );
+
+    if( qid == 1 ){
+	this.words.push( new Word( '動く', 'ugoku' ) );
+	this.words.push( new Word( '働く', 'hataraku' ) );
+	this.words.push( new Word( 'お世話になります', 'osewaninarimasu' ) );
+	this.words.push( new Word( '仕様です', 'siyoudesu' ) );
+    }else{
+	this.words.push( new Word( 'print', 'print' ) );
+	this.words.push( new Word( 'java', 'java' ) );
+	this.words.push( new Word( 'perl', 'perl' ) );
+	this.words.push( new Word( 'warn', 'warn' ) );
+    }
 
     this.charLength ;
 

@@ -8,13 +8,13 @@
     <link rel='stylesheet' href='/stylesheets/button.css' />
     <link rel='stylesheet' href='/stylesheets/information.css' />
     <script type='text/javascript' src='/socket.io/socket.io.js'></script>
-    <script type='text/javascript' src='javascripts/jquery.js'></script>
-    <script type='text/javascript' src='javascripts/PlayingTimer.js'></script>
-    <script type='text/javascript' src='javascripts/Word.js'></script>
-    <script type='text/javascript' src='javascripts/questionManager.js'></script>
-    <script type='text/javascript' src='javascripts/questionController.js'></script>
-    <script type='text/javascript' src='javascripts/viewController.js'></script>
-    <script type='text/javascript' src='javascripts/AudioManager.js'></script>
+    <script type='text/javascript' src='/javascripts/jquery.js'></script>
+    <script type='text/javascript' src='/javascripts/PlayingTimer.js'></script>
+    <script type='text/javascript' src='/javascripts/Word.js'></script>
+    <script type='text/javascript' src='/javascripts/questionManager.js'></script>
+    <script type='text/javascript' src='/javascripts/questionController.js'></script>
+    <script type='text/javascript' src='/javascripts/viewController.js'></script>
+    <script type='text/javascript' src='/javascripts/AudioManager.js'></script>
 
     <script type='text/javascript'>
     $(function(){
@@ -27,7 +27,7 @@
 
 	vController.initView();
 
-	var qManager = new questionManager();
+	var qManager = new questionManager( <%= qid %> );
 
 	var qController = new questionController( qManager, vController, aManager );
 	qController.timer = timer;
