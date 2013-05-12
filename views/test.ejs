@@ -97,6 +97,7 @@
 
 
   <div id='playingArea'>
+
     <div id='filter'></div>
 
     <img src='/images/indicator.png' class='information' id='indicator'>
@@ -108,13 +109,29 @@
     <img src='/images/enter_to_play.png' class='information' id='enter'>
 
     <div id='playingHeader'>
-      <div id='graphs'>
-	<div id='graph_a' class='graph'><span id='graphbar_a' class='graphbar'></span><span id='finished_time_a'></span></div>
-	<div id='graph_b' class='graph'><span id='graphbar_b' class='graphbar'></span><span id='finished_time_b'></span></div>
+      <div id='graphs' STYLE='float:left;'>
+	<div class='graphBlock'>
+	<div class='graph_title'>Team A</div>
+	<div id='graph_a' class='graph'>
+	  <img src='/images/rabbit.png' class='icon' id='icon_a' />
+	  <span id='graphbar_a' class='graphbar'></span>
+	</div>
+	<span id='finished_time_a' class='time_result'></span>
+	</div>
+
+	<br STYLE='clear:both'/>
+	<div class='graphBlock'>
+	<div class='graph_title'>Team B</div>
+	<div id='graph_b' class='graph'>
+	  <img src='/images/rabbit.png' class='icon' id='icon_b' />
+	  <span id='graphbar_b' class='graphbar'></span>
+	</div>
+	<span id='finished_time_b' class='time_result'></span>
+	</div>
       </div>
       <div id='timerDiv'>0</div>
-      <span STYLE='clear:both'/>
     </div>
+    <span STYLE='clear:both'/>
 
     <div id='teams'>
       <div class='team'>

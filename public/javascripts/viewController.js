@@ -29,6 +29,7 @@ function viewController( ){
     this.setGraph = function( team, label, val ){
 	$('#graphbar_' + team ).html( label );
 	$('#graphbar_' + team ).css( 'width', ( val + '%' ) );
+	$('#icon_' + team).css( 'margin-left', ( 500 * val / 100 + 5 + 'px' ) );
     };
 
     this.finished = function( team, time ){

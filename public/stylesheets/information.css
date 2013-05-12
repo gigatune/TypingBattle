@@ -3,25 +3,25 @@ img.information{
 }
 
 #indicator{
-    margin: 50px 0px 0px 100px;
+    margin: 70px 0px 0px 180px;
 }
 
 #opponents{
-    margin: 240px 0px 0px 540px;
+    margin: 340px 0px 0px 540px;
 }
 
 #timer{
-    margin: 50px 0px 0px 750px;
+    margin: 80px 0px 0px 750px;
 }
 
 #word_info{
-    margin: 170px 0px 0px 100px;
-}
-
-#ruby_info{
     margin: 270px 0px 0px 100px;
 }
 
+#ruby_info{
+    margin: 360px 0px 0px 100px;
+}
+
 #enter{
-    margin: 380px 0px 0px 350px;
+    margin: 520px 0px 0px 350px;
 }
