@@ -96,7 +96,7 @@ div#graphs{
     color : black;
     background-color : #f88;
     height : 40px;
-    margin : 10px 0px 10px 0px;
+    margin : 0px 0px 0px 0px;
 }
 
 .graph .graphbar span{
@@ -157,7 +157,7 @@ div#timerDiv{
     vertical-align : bottom;
     display : inline;
     border : 4px double blue;
-    font-size : 50px;
+    font-size : 40px;
     text-align : center;
     line-height : 90px;
 }
