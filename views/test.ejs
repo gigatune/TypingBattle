@@ -65,6 +65,8 @@
 
 	vController.setGraph( 'a', qManager.progressLabel( 0 ), 0 );
 	vController.setGraph( 'b', qManager.progressLabel( 0 ), 0 );
+        $('#sound_play_button').click( function(){ aManager.play() } );
+        $('#sound_mute_button').click( function(){ aManager.mute() } );
 
 	// develop view
 //	qController.setTeam( 'b' );
@@ -79,7 +81,6 @@
 
 
 <div id='baseContainer'>
-  
 
 <div id='teamSelector'>
 <img src='/images/character_1.png' alt='character 1' class='character' id='start_chara1'>
@@ -150,5 +151,9 @@
   </div>
 </div>
 
+<div STYLE='text-align:right;'>
+<img id='sound_play_button' src='/images/sound_play_icon.png' width='30px'>
+<img id='sound_mute_button' src='/images/sound_mute_icon.png' width='30px'>
+</div>
   </body>
 </html>

@@ -20,6 +20,8 @@ questionController.prototype.start = function(){
     this.viewController.setWord(this.team, this.word, 0 );
     this.isStarted = 1;
     this.timer.start();
+    this.audioManager.toBattle();
+
 };
 
 questionController.prototype.judge = function( keycode ){
