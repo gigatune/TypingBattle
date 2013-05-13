@@ -74,8 +74,14 @@ questionController.prototype.judge = function( keycode ){
 questionController.prototype.incrementWord = function(){
     this.wordIndex = this.wordIndex + 1;
     this.word = this.qManager.getWordAtIndex( this.wordIndex );
+    if( this.wordIndex % 5 == 0 ){
+	this.showPlayerChangeWindow();
+    };
 };
 
+questionController.prototype.showPlayerChangeWindow = function(){
+    alert( "next player" );
+};
 
 questionController.prototype.currentWord = function(){
     return this.word;
